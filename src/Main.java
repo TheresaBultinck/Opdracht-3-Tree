@@ -35,7 +35,7 @@ public class Main {
 		}
 		
 		Tree newTree = new Tree();
-		newTree.add(data, depth);
+		newTree.initialize(data, depth);
 		System.out.println(newTree.get());
 		
 	}
