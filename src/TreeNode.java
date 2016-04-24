@@ -1,13 +1,10 @@
-/**
- * No method combinations (n) because in the task example tree, the teacher pointed out variations instead of combinations
- */
-import java.io.Console;
+
+
 import java.util.ArrayList;
 
 public class TreeNode{
 	
 	private ArrayList<TreeNode> children; 
-	private TreeNode parent;
 	private char data;
 	private boolean isRoot; 
 	
@@ -17,22 +14,36 @@ public class TreeNode{
 	}
 	
 	/**
-	 * Adds children to the tree
-	 * @param arrayChar data to compute permutations of variations
+	 * Adds children to the tree when calculating variations
+	 * @param arrayChar data to compute variations
 	 * @param allowedDepth max depth for variations
 	 */
-	public void add(char[] arrayChar, int allowedDepth){
-		for (int i = 0; i < arrayChar.length; i++){
-			TreeNode childNode = new TreeNode(false);
-			childNode.setChar(arrayChar[i]);
-			children.add(childNode);
-			//System.out.println("adding char " + arrayChar[i] + " to tree");
-			char[] rest = this.computeRest(arrayChar, i);
-			if (allowedDepth-1 != 0){
-				childNode.add(rest,allowedDepth-1);	
-			}
-		}
-	}
+	 public void variation(char[] arrayChar, int allowedDepth) {
+		 for (int i = 0; i < arrayChar.length; i++) {
+	            TreeNode childNode = new TreeNode(false);
+	            childNode.setChar(arrayChar[i]);
+	            children.add(childNode);
+	            char[] rest = this.computeRest(arrayChar, i);
+	            if (allowedDepth - 1 != 0) {
+	                childNode.variation(rest, allowedDepth - 1);
+	            }
+	        }
+	    }
+	 
+	 /**
+	  * Adds children to the tree when calculating variations 
+	  * @param arrayChar data to compute permutations
+	  */
+	 public void permutation(char[] arrayChar) {
+		 for (int i = 0; i < arrayChar.length; i++) {
+	            TreeNode childNode = new TreeNode(false);
+	            childNode.setChar(arrayChar[i]);
+	            children.add(childNode);
+	            //System.out.println("adding char " + arrayChar[i] + " to tree");
+	            char[] rest = this.computeRest(arrayChar, i);
+	            childNode.permutation(rest);
+	        }
+	    }
 	
 	private void setChar (char c){
 		this.data = c; 

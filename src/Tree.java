@@ -12,14 +12,24 @@ public class Tree {
 	}
 	
 	/**
-	 * Starts creating the tree with children
+	 * Starts creating the tree with children in the case of calculating permutations
 	 * @param s data
-	 * @param depth max depth of the tree
 	 */
-	public void initialize(String s, int depth){
+	public void permutation(String s){
 		char[] chars = s.toCharArray();
-		root.add(chars, depth);
+		root.permutation(chars);
 	}
+	
+	/**
+	 * Starts creating the tree with children in the case of calculating variation
+	 * In the task this was combinations, but in fact the teacher was talking about variations
+	 * @param s data
+	 * @param max depth of the tree
+	 */ 
+	public void variation(String s, int depth){
+		char[] chars = s.toCharArray();
+		root.variation(chars, depth);
+        }
 	
 	/**
 	 * Prints tree

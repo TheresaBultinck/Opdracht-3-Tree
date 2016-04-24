@@ -5,8 +5,13 @@
 import java.util.Scanner;
 
 public class Main {
+	
+	/**
+	 * @param args the command line arguments
+	 */
 	public static void main (String args[]){
 		Scanner scanner = new Scanner(System.in);
+		Tree newTree = new Tree();
 		
 		System.out.println("Permutation or variation? Enter p or v");
 		String pOrV = scanner.nextLine();
@@ -33,13 +38,11 @@ public class Main {
 				System.out.println("Depth should be an integer");
 				System.exit(5);
 			}
-			
+			newTree.variation(data, depth);
 		} else {
-			depth = data.length();
+			 newTree.permutation(data);
 		}
 		
-		Tree newTree = new Tree();
-		newTree.initialize(data, depth);
 		System.out.println(newTree.get());
 		
 	}
