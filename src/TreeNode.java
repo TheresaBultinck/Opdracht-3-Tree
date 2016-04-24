@@ -1,4 +1,6 @@
-
+/**
+ * No method combinations (n) because in the task example tree, the teacher pointed out variations instead of combinations
+ */
 import java.io.Console;
 import java.util.ArrayList;
 
