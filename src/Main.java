@@ -1,3 +1,7 @@
+/**
+ * Runs the program for calculating permutations and variations
+ * @author Theresa Bultinck
+ */
 import java.util.Scanner;
 
 public class Main {
